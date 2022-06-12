@@ -104,6 +104,6 @@ app.put('/deleteTask', (request, response) => {
 
 
 
-app.listen(process.env.PORT || PORT, ()=>{ 
-    console.log(`Server running on port ${PORT}`);
+app.listen(process.env.PORT || PORT, ()=>{
+    console.log(`Server running on port ${PORT}`)
 })
