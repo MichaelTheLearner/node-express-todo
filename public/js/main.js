@@ -1,15 +1,19 @@
-const { response } = require("express");
 
-const addTaskButton = document.querySelectorAll('.addTaskButton')
+// const addTaskButton = document.querySelectorAll('.addTaskButton')
 
 
-Array.from(addTaskButton).forEach((element) => {
-    element.addEventListener('click', addTask);
-})
+// Array.from(addTaskButton).forEach((element) => {
+//     element.addEventListener('click', addTask);
+// })
 
-document.querySelector('#addListButton').addEventListener('click', addList);
+// document.querySelector('#addListBeta').addEventListener('click', addList);
 
-const addTask = async () => {
+// const addList = async () => {
+
+// }
+
+
+async function addTask() {
     const listID = this.parentNode.childNodes[1].innerText;
     const taskName = this.parentNode.childNodes[2].innerText;
 

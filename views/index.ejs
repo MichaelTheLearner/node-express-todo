@@ -4,43 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/style.css">
 
     <title>node mongodb todo list</title>
 
 </head>
 <body>
-    <% for(let i = 0; i < listData.length; i++) {%>
-        <section class="actionList" name="<%= listData[i]._id %>">
-            <span><%= listData[i].name %></span>
-            <section class="actionList-input-section">
-                <form action="/addToDo" method="POST">
-                    <input class="hidden" name="id" value="<%= listData[i]._id %>">
-                    <input class="actionList-taskname-input" type="text" placeholder="Task..." name="taskName">
-                    <input type="submit" class="addTaskButton">
-                </form>
-                
-            </section>
-            <ul class="todos">
-                <% for(let j = 0; j < listData[i].tasks.length; j++) {%>
-                    <li>
-                        <span class="task-name"><%= listData[i].tasks[j].taskName %></span>
+    <main>
+        <section id="section-list">
+            <% for(let i = 0; i < listData.length; i++) {%>
+                <section class="actionList" name="<%= listData[i]._id %>">
+                    <span><%= listData[i].name %></span>
+                    <section class="actionList-input-section">
+                        <form action="/addToDo" method="POST" class="form-addToDo">
+                            <input type="text" class="hidden" name="id" value="<%= listData[i]._id %>">
+                            <input type="text" class="actionList-taskname-input" placeholder="Task..." name="taskName">
+                            <input type="Submit" class="addTaskButton">
+                        </form>
                         
-                        <span class="task-difficulty"><%= listData[i].tasks[j].difficulty %></span>
-                        <span class="task-notes hidden"><%= listData[i].tasks[j].notes %></span>
-                    </li>
-                <% } %>
-            </ul>
+                    </section>
+                    <ul class="todos">
+                        <% for(let j = 0; j < listData[i].tasks.length; j++) {%>
+                            <li>
+                                <span class="task-name"><%= listData[i].tasks[j].taskName %></span>
+                                
+                                <!-- <span class="task-difficulty"></span> -->
+                                <!-- <span class="task-notes hidden"></span> -->
+                            </li>
+                        <% } %>
+                    </ul>
+                </section>
+            <% } %>
         </section>
-    <% } %>
+    </main>
+   
+
+    
     <section id="addListSection">
         <form action="/addList" method="POST">
             <a href="javascript:{}" id="addListButton" onclick="this.closest('form').submit();return false;">
-                +
+                <span class="material-symbols-outlined" id="addListButtonSymbol">
+                    add_box
+                </span>
+                <span id="addListBeta">+</span>
             </a>
-        </form>
-        
+        </form>        
     </section>
-    <script src="../public/js/main.js"></script>
+    
+    <script src="/js/main.js"></script>
 </body>
 </html>

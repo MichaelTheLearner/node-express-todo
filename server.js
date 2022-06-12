@@ -16,7 +16,7 @@ MongoClient.connect(dbConnectionStr, {useUnifiedTopology: true })
     })
 
 app.set('view engine', 'ejs');
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
@@ -30,25 +30,21 @@ app.get('/', (request, response)=>{
 })
 
 app.post('/addToDo', (request, response) => {
-    db.collection('actionLists').updateOne({id: request.body.id},
+    db.collection('actionLists').updateOne({_id: request.body.id},
                                             {
                                                 $push: {
-                                                    tasks: {
-                                                        $each: [{taskName: request.body.taskName, 
-                                                                currentTableID: request.body.id}],
-                                                                $position: 0 
+                                                    tasks: {taskName: request.body.taskName}
                                                         }
-                                                }
                                             })
                                             .then(result => {
-                                                console.log(`Added task: ${request.body.newTask} to List: ${request.body.id}`)
-                                                response.json('Todo Added')
+                                                console.log(`Added task: ${request.body.taskName} to List: ${request.body.id}`)
+                                                response.redirect('/')
                                             })
                                             .catch(error => console.error(error))
 
 })
 
-app.post('addList', (request, response) => {
+app.post('/addList', (request, response) => {
     db.collection("actionLists").insertOne({
                                             tasks: []
                                             })
