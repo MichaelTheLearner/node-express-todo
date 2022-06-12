@@ -16,20 +16,31 @@
         <section id="section-list">
             <% for(let i = 0; i < listData.length; i++) {%>
                 <section class="actionList" name="<%= listData[i]._id %>">
-                    <span><%= listData[i].name %></span>
+                    <section class="actionList-header">
+                        <span><%= listData[i].name %></span>
+                        <span class="material-symbols-outlined actionList-closeButton">
+                            close
+                        </span>
+                    </section>
+                    
                     <section class="actionList-input-section">
                         <form action="/addToDo" method="POST" class="form-addToDo">
-                            <input type="text" class="hidden" name="id" value="<%= listData[i]._id %>">
+                            <input type="text" class="tableID hidden" name="id" value="<%= listData[i]._id %>">
                             <input type="text" class="actionList-taskname-input" placeholder="Task..." name="taskName">
                             <input type="Submit" class="addTaskButton">
                         </form>
                         
                     </section>
                     <ul class="todos">
+                        <h3>Tasks</h3>
                         <% for(let j = 0; j < listData[i].tasks.length; j++) {%>
                             <li>
+                                <span class="hidden"><%= listData[i].tasks[j].id %></span>
                                 <span class="task-name"><%= listData[i].tasks[j].taskName %></span>
                                 
+                                <span class="material-symbols-outlined task-delete">
+                                    delete
+                                </span>
                                 <!-- <span class="task-difficulty"></span> -->
                                 <!-- <span class="task-notes hidden"></span> -->
                             </li>

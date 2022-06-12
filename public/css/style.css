@@ -66,8 +66,13 @@ footer {
 .actionList{
     border-radius: 10px;
     border: 1px solid black;
+    padding: 20px 10px;
    
 }
+
+.actionList ul, actionList li {
+    list-style-type: none;
+}   
 
 .form-addToDo{
     display: flex;
@@ -78,8 +83,19 @@ footer {
     top:50%;
     right:0;
     
+    
 }
 #addListButtonSymbol {
     font-size: 4rem;
-    color: darkgray
+    color: darkgray;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+.actionList-header {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
