@@ -69,6 +69,10 @@ input {
 }
 input:focus {border: 0!important; outline:none!important;}
 
+span, a {
+    display:flex;
+}
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
@@ -165,7 +169,7 @@ input:focus {border: 0!important; outline:none!important;}
     justify-content: space-between;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
-    
+    align-items:center;
     padding: 5px 10px;
 }
 .actionList .todos{
