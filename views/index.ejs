@@ -20,7 +20,7 @@
     <main>
         <section id="section-list">
             <% for(let i = 0; i < listData.length; i++) {%>
-                <section class="actionList" name="<%= listData[i]._id %>">
+                <section class="actionList paper" name="<%= listData[i]._id %>">
                     <section class="actionList-header">
                         <span><%= listData[i].name %></span>
                         <span class="material-symbols-outlined actionList-closeButton">
@@ -63,7 +63,7 @@
    
 
     
-    <section id="addListSection">
+    <section id="addListSection" class="paper">
         <form action="/addList" method="POST">
             <a href="javascript:{}" id="addListButton" onclick="this.closest('form').submit();return false;">
                 <span class="material-symbols-outlined" id="addListButtonSymbol">
