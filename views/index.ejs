@@ -27,14 +27,19 @@
                         <form action="/addToDo" method="POST" class="form-addToDo">
                             <input type="text" class="tableID hidden" name="id" value="<%= listData[i]._id %>">
                             <input type="text" class="actionList-taskname-input" placeholder="Task..." name="taskName">
-                            <input type="Submit" class="addTaskButton">
+                            <!-- <input type="Submit" class="addTaskButton"> -->
+                            <a href="javascript:{}" id="addListButton" onclick="this.closest('form').submit();return false;">
+                                <span class="material-symbols-outlined">
+                                    add_circle
+                                    </span>
+                            </a>
                         </form>
                         
                     </section>
                     <ul class="todos">
                         <h3>Tasks</h3>
                         <% for(let j = 0; j < listData[i].tasks.length; j++) {%>
-                            <li>
+                            <li class="todo-li">
                                 <span class="hidden"><%= listData[i].tasks[j].id %></span>
                                 <span class="task-name"><%= listData[i].tasks[j].taskName %></span>
                                 
@@ -59,7 +64,7 @@
                 <span class="material-symbols-outlined" id="addListButtonSymbol">
                     add_box
                 </span>
-                <span id="addListBeta">+</span>
+                <!-- <span id="addListBeta">+</span> -->
             </a>
         </form>        
     </section>
