@@ -1,8 +1,12 @@
+//TODO Make drag and drop a thing
+//LAST DONE: installed interactjs
+
 const express = require('express');
 const { ObjectId } = require('mongodb');
 const app =  express();
 const MongoClient = require('mongodb').MongoClient;
 const { v4: uuidv4 } = require('uuid');
+const interact = require('interactjs');
 
 const PORT = 1111;
 

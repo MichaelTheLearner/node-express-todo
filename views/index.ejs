@@ -45,8 +45,9 @@
                     <ul class="todos">
                         <h3>Tasks</h3>
                         <% for(let j = 0; j < listData[i].tasks.length; j++) {%>
-                            <li class="todo-li">
-                                <span class="hidden"><%= listData[i].tasks[j].id %></span>
+                            <li class="todo-li" draggable="true">
+                                <span class="taskID hidden"><%= listData[i].tasks[j].id %></span>
+                                <span class="listID hidden"><%= listData[i]._id %></span>
                                 <span class="task-name"><%= listData[i].tasks[j].taskName %></span>
                                 
                                 <span class="material-symbols-outlined task-delete">

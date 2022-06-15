@@ -171,7 +171,18 @@ span, a {
     border-bottom: 1px solid lightgray;
     align-items:center;
     padding: 5px 10px;
+    cursor: grab;
 }
+
+.dragging {
+    opacity: 0.5;
+}
+
+.hovered {
+    
+    border: 5px solid gray;
+}
+
 .actionList .todos{
     border: 1px solid lightgrey;
     border-radius:5px;
@@ -184,4 +195,7 @@ span, a {
     background: blue;
     color: white;
 
+}
+.task-delete{
+    cursor: pointer;
 }
